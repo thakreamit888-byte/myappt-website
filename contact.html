@@ -4,49 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact & Support - My Appointment</title>
+    <title>Contact & Support | My Appointment</title>
+
+    <meta
+        name="description"
+        content="Contact and support information for My Appointment."
+    />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 85% 10%, rgba(168,85,247,0.18), transparent 30%),
+                #0c0721;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: min(850px, 92%);
+            margin: auto;
+        }
+
+        header {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: #a855f7;
+        }
+
+        main {
+            padding: 80px 0;
+        }
+
+        .card {
+            max-width: 650px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.045);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            color: #c084fc;
+            margin-top: 35px;
+        }
+
+        p, li {
+            color: rgba(255,255,255,0.70);
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 13px 18px;
+            border-radius: 10px;
+            background: #5e22a2;
+            color: white;
+            font-weight: 600;
+        }
+
+        a {
+            color: #c084fc;
+        }
+
+        .email {
+            color: white;
+        }
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        footer a {
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Contact & Support</h1>
-        <p>My Appointment</p>
-    </header>
+<header>
+    <div class="container">
 
-    <main>
+        <a href="index.html" class="brand">
+            My<span>Appointment</span>
+        </a>
 
-        <h2>Need Help?</h2>
+    </div>
+</header>
 
-        <p>
-            If you have questions or need assistance with My Appointment,
-            you can contact our support team.
-        </p>
 
-        <h2>Email Support</h2>
+<main>
 
-        <p>
-            Email:
-            <a href="mailto:lordsmobileobilica@gmail.com">
-                support@myappointment.app
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Contact & Support</h1>
+
+            <p>
+                Need help with My Appointment?
+            </p>
+
+            <p>
+                For questions or assistance related to the application,
+                account access, appointment booking, required documents,
+                service centers or technical issues, please contact our
+                support team.
+            </p>
+
+
+            <h2>Support Topics</h2>
+
+            <ul>
+                <li>Account and authentication</li>
+                <li>Google Sign-In</li>
+                <li>Appointment booking</li>
+                <li>Appointment management</li>
+                <li>Required documents</li>
+                <li>Service-center information</li>
+                <li>Technical issues</li>
+            </ul>
+
+
+            <h2>Email Support</h2>
+
+            <p>
+                Contact us by email:
+            </p>
+
+            <!-- REPLACE THIS EMAIL WITH YOUR REAL EMAIL -->
+
+            <a
+                class="email"
+                href="mailto:YOUR-REAL-EMAIL@gmail.com"
+            >
+                YOUR-REAL-EMAIL@gmail.com
             </a>
-        </p>
 
-        <h2>About Support</h2>
 
-        <p>
-            For questions related to account access, appointment booking,
-            service centers, required documents, or technical issues,
-            please contact us by email.
-        </p>
+            <h2>Response</h2>
 
-    </main>
+            <p>
+                Please include a clear description of your issue when
+                contacting support. For appointment-related questions,
+                provide only the information necessary to identify the issue
+                and do not send passwords or authentication credentials.
+            </p>
 
-    <footer>
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
         <a href="index.html">Home</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
-    </footer>
+
+        <p>
+            © 2026 My Appointment. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
