@@ -4,54 +4,730 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Appointment - Smart Government Appointment Booking</title>
+    <title>My Appointment | Smart Government Appointment Booking</title>
 
-    <meta name="description"
-          content="My Appointment is a smart government appointment booking platform that helps citizens discover services, find service centers, and manage appointments.">
+    <meta
+        name="description"
+        content="My Appointment is a smart government appointment booking platform that helps citizens discover government services, find service centers, view appointment slots, prepare required documents and manage appointments."
+    />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 85% 10%, rgba(168, 85, 247, 0.20), transparent 30%),
+                radial-gradient(circle at 10% 85%, rgba(59, 108, 183, 0.15), transparent 30%),
+                #0c0721;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        /* Header */
+
+        header {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(12, 7, 33, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .brand span {
+            color: #a855f7;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0 85px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            border-radius: 30px;
+            color: #c084fc;
+            background: rgba(168, 85, 247, 0.08);
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #a855f7;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            font-weight: 500;
+            color: rgba(255,255,255,0.86);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            color: rgba(255,255,255,0.68);
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .button-primary {
+            background: #5e22a2;
+        }
+
+        .button-primary:hover {
+            background: #7b2bc9;
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Sections */
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: rgba(255,255,255,0.62);
+            max-width: 680px;
+            margin: auto;
+        }
+
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: rgba(255,255,255,0.72);
+            font-size: 16px;
+        }
+
+        /* Cards */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 26px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.045);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: rgba(255,255,255,0.62);
+            font-size: 14px;
+        }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(168,85,247,0.15);
+            color: #c084fc;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        /* How it works */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px 12px;
+        }
+
+        .step-number {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #5e22a2;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            color: rgba(255,255,255,0.58);
+            font-size: 13px;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            padding: 55px 25px;
+            border-radius: 22px;
+            border: 1px solid rgba(168,85,247,0.20);
+            background: linear-gradient(
+                135deg,
+                rgba(94,34,162,0.25),
+                rgba(168,85,247,0.08)
+            );
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+
+        footer {
+            margin-top: 60px;
+            padding: 35px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.68);
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #a855f7;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.42);
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>My Appointment</h1>
-        <p>Smart Government Appointment Booking System</p>
-    </header>
+<header>
+    <div class="container navbar">
 
-    <main>
+        <a href="index.html" class="brand">
+            My<span>Appointment</span>
+        </a>
 
-        <section>
-            <h2>About My Appointment</h2>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="badge">
+                Smart Government Appointment Platform
+            </div>
+
+            <h1>
+                My<span>Appointment</span>
+            </h1>
+
+            <h2>
+                Smart Government Appointment Booking System
+            </h2>
 
             <p>
                 My Appointment is a digital platform designed to help citizens
-                discover government services, find nearby service centers,
-                view available appointment slots, select required documents,
-                book appointments, and manage their appointments.
+                discover government services, find service centers, view
+                appointment availability, prepare required documents and
+                manage appointments digitally.
             </p>
-        </section>
 
-        <section>
-            <h2>What You Can Do</h2>
+            <div class="hero-buttons">
+                <a href="#features" class="button button-primary">
+                    Explore Features
+                </a>
 
-            <ul>
-                <li>Discover government services</li>
-                <li>Find nearby service centers</li>
-                <li>View available appointment slots</li>
-                <li>Select required documents</li>
-                <li>Book appointments</li>
-                <li>Manage and view appointments</li>
-            </ul>
-        </section>
+                <a href="contact.html" class="button button-secondary">
+                    Contact & Support
+                </a>
+            </div>
 
-    </main>
+        </div>
 
-    <footer>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="contact.html">Contact / Support</a>
+    </section>
 
-        <p>© 2026 My Appointment. All rights reserved.</p>
-    </footer>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About My Appointment</h2>
+                <p>
+                    A citizen-focused approach to government appointment
+                    management.
+                </p>
+            </div>
+
+            <div class="about">
+
+                <p>
+                    My Appointment provides a centralized digital experience
+                    for government-related appointment services. Citizens can
+                    discover available services, identify suitable service
+                    centers, view available appointment slots, prepare
+                    required documents and manage their appointments from
+                    one platform.
+                </p>
+
+                <br>
+
+                <p>
+                    The platform is designed around the Smart Government
+                    Appointment System requirements of DT-16, with an emphasis
+                    on reducing unnecessary visits, improving appointment
+                    organization and helping citizens prepare before visiting
+                    a service center.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section id="features">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Key Features</h2>
+                <p>
+                    Features designed around the citizen appointment journey.
+                </p>
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="icon">🔎</div>
+                    <h3>Government Services</h3>
+                    <p>
+                        Discover and explore available government services
+                        and their relevant information.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">📍</div>
+                    <h3>Nearby Service Centers</h3>
+                    <p>
+                        Discover service centers and access location and
+                        navigation information.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">📅</div>
+                    <h3>Appointment Booking</h3>
+                    <p>
+                        View available appointment slots and book a suitable
+                        appointment.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">📄</div>
+                    <h3>Required Documents</h3>
+                    <p>
+                        Review the documents required for a selected
+                        government service before the appointment.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">🎫</div>
+                    <h3>Appointment Management</h3>
+                    <p>
+                        View and manage booked appointments from a centralized
+                        appointment section.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">🔐</div>
+                    <h3>Secure Authentication</h3>
+                    <p>
+                        Account authentication is supported through Firebase
+                        Authentication, including email verification and
+                        Google Sign-In.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">📱</div>
+                    <h3>QR-Based Check-In</h3>
+                    <p>
+                        The DT-16 architecture supports QR-based appointment
+                        identification and check-in at service centers.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">🤖</div>
+                    <h3>AI-Assisted Services</h3>
+                    <p>
+                        The broader DT-16 solution includes intelligent
+                        reminders, document assistance, demand analysis and
+                        appointment optimization.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="icon">🔔</div>
+                    <h3>Notifications</h3>
+                    <p>
+                        The DT-16 architecture supports appointment-related
+                        booking, reminder, cancellation and check-in
+                        notifications.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section id="how-it-works">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>
+                    A simple journey from service discovery to appointment
+                    management.
+                </p>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Select Service</h3>
+                    <p>
+                        Find the government service you need.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Select Center</h3>
+                    <p>
+                        Find a suitable service center.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Choose Slot</h3>
+                    <p>
+                        View available appointment times.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Prepare Documents</h3>
+                    <p>
+                        Check the required documents.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Manage Appointment</h3>
+                    <p>
+                        View and manage your appointment.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECURITY -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Security & Privacy</h2>
+                <p>
+                    My Appointment is designed with secure account and data
+                    handling in mind.
+                </p>
+            </div>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Authentication</h3>
+                    <p>
+                        Firebase Authentication is used for account
+                        authentication. Email verification is supported for
+                        email/password accounts.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Cloud Data</h3>
+                    <p>
+                        User profile information is stored using Firebase
+                        Firestore as part of the application's backend.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Privacy</h3>
+                    <p>
+                        Read our Privacy Policy to understand what information
+                        the application collects and how it is used.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="cta">
+
+                <h2>Need Help?</h2>
+
+                <p>
+                    For questions about My Appointment, account access,
+                    appointment booking or technical issues, visit our
+                    support page.
+                </p>
+
+                <a href="contact.html" class="button button-primary">
+                    Contact & Support
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            <a href="contact.html">
+                Contact & Support
+            </a>
+
+        </div>
+
+        <p>
+            © 2026 My Appointment. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
